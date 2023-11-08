@@ -1,0 +1,6 @@
+.vscode
+
+[Oo]bj/
+[Bb]in/
+.env.*
+!.env.example
