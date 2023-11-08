@@ -50,7 +50,7 @@ jobs:
                 uses: peter-evans/repository-dispatch@v2
                 with:
                     event-type: on-new-version
-                    client-payload: '{ version: "${{ steps.tag_version.outputs.new_tag }}" }'
+                    client-payload: '{ "version": "${{ steps.tag_version.outputs.new_tag }}" }'
 
             - 
                 name: Add new tag to the GITHUB_ENV variable
