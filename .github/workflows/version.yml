@@ -51,8 +51,3 @@ jobs:
                 with:
                     event-type: on-new-version
                     client-payload: '{ "version": "${{ steps.tag_version.outputs.new_tag }}" }'
-
-            - 
-                name: Add new tag to the GITHUB_ENV variable
-                if: ${{steps.create_release.outcome}} == success
-                run: echo ${{steps.tag_version.outputs.new_tag}} >> $GITHUB_ENV
