@@ -1,6 +1,8 @@
+name: version
+
 on:
     workflow_run: 
-        workflows: test
+        workflows: [test]
         types: completed
     workflow_dispatch:
 
