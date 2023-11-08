@@ -1,0 +1,9 @@
+**/bin
+**/obj
+**/Dockerfile*
+docker-compose.*
+
+*.sh
+**/*.md
+
+.env.*
