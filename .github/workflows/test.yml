@@ -61,4 +61,4 @@ jobs:
 
             -
                 name: Run unit tests
-                run: docker run --rm ghcr.io/${{ github.repository }}:"$GITHUB_RUN_ID"
+                run: docker run --rm ghcr.io/${{ github.repository }}_unit_test:"$GITHUB_RUN_ID"
