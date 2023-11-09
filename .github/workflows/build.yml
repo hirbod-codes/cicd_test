@@ -40,12 +40,12 @@ jobs:
                     username: ${{github.repository_owner}}
                     password: ${{secrets.GITHUB_TOKEN}}
 
-            # -
-            #     name: Get previous tag
-            #     id: previous-tag
-            #     uses: WyriHaximus/github-action-get-previous-tag@v1
-            #     with:
-            #         fallback: 0.0.0
+            -
+                name: Get previous tag
+                id: previous-tag
+                uses: WyriHaximus/github-action-get-previous-tag@v1
+                with:
+                    fallback: 0.0.0
 
             - 
                 name: Docker Metadata for Final Image Build
@@ -56,8 +56,8 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=semver,pattern={{version}}
-                    # type=semver,pattern={{version}},value=${{ steps.previous-tag.outputs.tag }}
+                        type=semver,pattern={{version}},value=${{ steps.previous-tag.outputs.tag }}
+                    # type=semver,pattern={{version}}
 
             - 
                 name: Build and push user_management service docker image  to GHCR and Docker Hub
