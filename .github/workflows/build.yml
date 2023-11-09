@@ -52,7 +52,7 @@ jobs:
                 id: docker_meta
                 uses: docker/metadata-action@v5
                 with:
-                    images: ${{github.repository}},ghcr.io/${{github.repository}}
+                    images: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }},ghcr.io/${{github.repository}}
                     flavor: |
                         latest=false
                     tags: |
