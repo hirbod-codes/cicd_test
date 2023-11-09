@@ -1,14 +1,14 @@
 name: version
 
 on:
-    workflow_run: 
-        workflows: [test]
-        types: completed
+    pull_request:
+        types:
+            - closed
     workflow_dispatch:
 
 jobs:
     create-release-version:
-        name: Create release version
+        if: ${{ github.event.pull_request.merged }} == true
         runs-on: ubuntu-latest
         permissions:
             packages: write
