@@ -1,9 +1,8 @@
 name: build
 
 on:
-    workflow_run: 
-        workflows: [version]
-        types: completed
+    repository_dispatch:
+        types: [on-new-version]
     workflow_dispatch:
 
 jobs:
@@ -44,8 +43,10 @@ jobs:
                 name: Get previous tag
                 id: previous-tag
                 uses: WyriHaximus/github-action-get-previous-tag@v1
-                with:
-                    fallback: 0.0.0
+            
+            -
+                name: echo previous tag
+                run: echo ${{ steps.previous-tag.outputs.tag }}
 
             - 
                 name: Docker Metadata for Final Image Build
@@ -56,7 +57,7 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=semver,pattern={{version}},value=${{ steps.previous-tag.outputs.tag }}
+                        type=semver,pattern={{version}},value=${{ github.event.client_payload.version }}
                     # type=semver,pattern={{version}}
 
             - 
