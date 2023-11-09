@@ -49,7 +49,7 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=raw,value={{version}}
+                        type=semver,value={{pattern}}
 
             - 
                 name: Build and push user_management service docker image  to GHCR and Docker Hub
