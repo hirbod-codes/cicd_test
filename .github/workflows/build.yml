@@ -1,8 +1,9 @@
 name: build
 
 on:
-    repository_dispatch:
-        types: [on-new-version]
+    workflow_run: 
+        workflows: [version]
+        types: completed
     workflow_dispatch:
 
 jobs:
@@ -48,7 +49,7 @@ jobs:
                     flavor: |
                         latest=false
                     tags: |
-                        type=raw,value=${{ github.event.client_payload.verison }}
+                        type=raw,value={{version}}
 
             - 
                 name: Build and push user_management service docker image  to GHCR and Docker Hub
