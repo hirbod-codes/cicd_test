@@ -45,7 +45,7 @@ jobs:
                 id: previous-tag
                 uses: WyriHaximus/github-action-get-previous-tag@v1
                 with:
-                    fallback: 1.0.0
+                    fallback: 0.0.0
 
             - 
                 name: Docker Metadata for Final Image Build
