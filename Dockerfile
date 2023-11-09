@@ -15,9 +15,12 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS prod
 
 WORKDIR /app
 
+COPY ./cicd_test.csproj ./
+RUN dotnet restore -v d
+
 COPY . .
 
-RUN dotnet publish -c Release -o /publish
+RUN dotnet publish --no-restore -c Release -o /publish
 
 WORKDIR /publish
 
