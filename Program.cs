@@ -1,9 +1,9 @@
 ﻿namespace cicd_test;
 
-    public class Program
+public class Program
+{
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World! from version: v1.0.0");
-        }
+        Console.WriteLine("Hello, World! from version: v0.1.0");
     }
+}
